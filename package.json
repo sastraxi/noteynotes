@@ -2,6 +2,7 @@
   "name": "noteynotes",
   "version": "0.0.1",
   "packageManager": "yarn@3.6.0",
+  "main": "./dist/index.js",
   "devDependencies": {
     "@types/react": "^18.2.17",
     "typescript": "^5.1.6"
