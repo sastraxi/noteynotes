@@ -2,17 +2,25 @@
     "include": ["src/"],
     "exclude": ["!src/"],
     "compilerOptions": {
+        "target": "ES2020",
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+
         "outDir": ".",
         "baseUrl": "./src",
         "declaration": true,
         "module": "esnext",
-        "lib": [
-            "dom",
-            "esnext",
-            "dom.iterable"
-        ],
-        "moduleResolution": "node",
+
+        /* Bundler mode */
+        "moduleResolution": "bundler", /* or "node" ?? */
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
         "jsx": "react-jsx",
+
+        /* Linting */
+        "strict": true,
+        "noFallthroughCasesInSwitch": true,
         "sourceMap": true,
         "esModuleInterop": true,
         "noImplicitReturns": true,

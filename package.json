@@ -6,6 +6,7 @@
   "types": "./index.d.ts",
   "devDependencies": {
     "@types/react": "^18.2.17",
+    "@types/react-dom": "^18.0.11",
     "typescript": "^5.1.6"
   },
   "peerDependencies": {
@@ -15,5 +16,10 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc -w"
+  },
+  "dependencies": {
+    "fast-json-stable-stringify": "^2.1.0",
+    "tonal": "^5.0.0",
+    "vexchords": "^1.2.0"
   }
 }
