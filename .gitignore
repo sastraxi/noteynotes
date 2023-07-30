@@ -15,9 +15,6 @@ lerna-debug.log*
 !.yarn/sdks
 !.yarn/versions
 node_modules
-dist
-*.js
-dist-ssr
 *.local
 
 # Editor directories and files

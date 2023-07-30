@@ -1,1 +1,1 @@
-export const HELLO = 'world'
+export const HELLO_WORLD = 'hello, world!'
