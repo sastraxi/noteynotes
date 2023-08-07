@@ -3,7 +3,7 @@ import { transpose, Scale, Interval, Note as TonalNote } from 'tonal';
  * Ensures that string comparison === note comparison (w/enharmonic equivalents).
  * Doesn't matter what we pick; here we're just always choosing sharps.
  */
-const ENHARMONIC_NORMALIZE_MAP = {
+export const ENHARMONIC_NORMALIZE_MAP = {
     'Db': 'C#',
     'Eb': 'D#',
     'Gb': 'F#',

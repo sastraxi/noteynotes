@@ -1,4 +1,5 @@
 {
+  "workbench.colorTheme": "Night Owl (No Italics)",
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,

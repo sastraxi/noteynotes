@@ -12,6 +12,17 @@ export type ExplodedNote = {
     octave?: number;
 };
 /**
+ * Ensures that string comparison === note comparison (w/enharmonic equivalents).
+ * Doesn't matter what we pick; here we're just always choosing sharps.
+ */
+export declare const ENHARMONIC_NORMALIZE_MAP: {
+    Db: string;
+    Eb: string;
+    Gb: string;
+    Ab: string;
+    Bb: string;
+};
+/**
  * Ensures that every enharmonic note is given the same name.
  * Later, we can put the note back "into context" of the key.
  */
