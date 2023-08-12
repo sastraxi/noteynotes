@@ -26,6 +26,7 @@ type FullChord = {
 };
 export declare const ALL_CHORD_NAMES: Array<string>;
 export declare const lookupChord: (chord: Chord | ExplodedChord) => FullChord;
+export declare const isValidChord: (chord: Chord | ExplodedChord) => boolean;
 /**
  * Get the notes that make up this chord, optionally rooting it in a specific octave
  * so that the notes have correct intervalic distances from each other.

@@ -50,18 +50,34 @@ const CHORD_LIBRARY = {};
     add(['7sus4'], SUS4_TRIAD, [11]);
     add(['9sus4'], SUS4_TRIAD, [10, 14]);
 }
+class ChordNotFoundError extends Error {
+    constructor(msg) {
+        super(msg);
+    }
+}
 export const lookupChord = (chord) => {
     const { root, suffix } = (typeof chord === 'string' ? explodeChord(chord) : chord);
     const [baseSuffix, bassNote] = suffix.split('/');
     const lookupKey = baseSuffix.trim().toLowerCase();
     if (!(lookupKey in CHORD_LIBRARY)) {
-        throw new Error(`Could not find ${lookupKey} in chord library (from: ${root} ${suffix})`);
+        throw new ChordNotFoundError(`Could not find ${lookupKey} in chord library (from: ${root} ${suffix})`);
     }
     return {
         rootNote: stripOctave(root),
         bassNote: bassNote ? stripOctave(bassNote) : undefined,
         type: CHORD_LIBRARY[lookupKey],
     };
+};
+export const isValidChord = (chord) => {
+    try {
+        lookupChord(chord);
+        return true;
+    }
+    catch (e) {
+        // TODO: figure out a good way to work around:
+        // https://github.com/microsoft/TypeScript/issues/13965
+        return false;
+    }
 };
 /**
  * Get the notes that make up this chord, optionally rooting it in a specific octave
