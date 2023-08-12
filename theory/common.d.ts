@@ -6,6 +6,7 @@ export type NoteDisplayContext = {
     keyName?: string;
     scale?: Note[];
     showOctave?: boolean;
+    compact?: boolean;
 };
 export type ExplodedNote = {
     name: string;

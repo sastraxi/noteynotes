@@ -1,5 +1,5 @@
 import { VexChordDefinition } from 'vexchords';
-import { Note, NoteDisplayContext } from './common';
+import { Note, NoteDisplayContext } from '../theory/common';
 export type Fretting = {
     frets: number[];
     fingers: number[];
@@ -22,7 +22,7 @@ export declare const isOverChord: ({ suffix }: ExplodedChord) => boolean;
 export declare const explodeChord: (chordName: Chord) => ExplodedChord;
 export declare const combineChord: (chord: ExplodedChord) => Chord;
 export declare const chordEquals: (a: ExplodedChord, b: ExplodedChord) => boolean;
-export declare const chordForDisplay: (chord: Chord | ExplodedChord, context?: NoteDisplayContext) => string;
+export declare const basicChordForDisplay: (chord: Chord | ExplodedChord, context?: NoteDisplayContext) => string;
 /**
  * Looks up all guitar chords for a given chord name in chords-db.
  * @param chordName the chord name, e.g. C/D#, Emmaj7b5, F major

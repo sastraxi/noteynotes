@@ -1,6 +1,6 @@
 import GuitarChords from './guitar.json'; // see README.md
 import { transpose, Interval, } from 'tonal';
-import { displayAccidentals, normalizedNoteName, noteForDisplay } from './common';
+import { displayAccidentals, normalizedNoteName, noteForDisplay } from '../theory/common';
 const STANDARD_TUNING = ['E2', 'A2', 'D3', 'G3', 'B3', 'E4'];
 /**
  * Normalize the root of a chord for lookup in the database.
@@ -41,7 +41,7 @@ export const explodeChord = (chordName) => {
 export const combineChord = (chord) => `${chord.root} ${chord.suffix}`;
 export const chordEquals = (a, b) => normalizedNoteName(a.root) === normalizedNoteName(b.root) &&
     a.suffix === b.suffix;
-export const chordForDisplay = (chord, context = {}) => {
+export const basicChordForDisplay = (chord, context = {}) => {
     const { root, suffix } = (typeof chord === 'string' ? explodeChord(chord) : chord);
     const space = suffix.startsWith('/') ? '' : ' ';
     return `${noteForDisplay(root, context)}${space}${displayAccidentals(suffix)}`;

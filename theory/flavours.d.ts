@@ -1,4 +1,4 @@
-import { ChordSuffix } from "./guitar";
+import { ChordSuffix } from "../instrument/guitar";
 import { ChordAndAccidentals } from "./keys";
 export type Flavour = {
     name: string;
@@ -31,5 +31,5 @@ export declare const Balanced: Flavour;
 export declare const FLAVOUR_CHOICES: Readonly<Array<Flavour>>;
 export declare const getMakeFlavourChoice: (flavour: Flavour, chords: Array<ChordAndAccidentals>) => {
     candidateChords: ChordAndAccidentals[];
-    chooseChord: () => import("./guitar").ExplodedChord;
+    chooseChord: () => import("../instrument/guitar").ExplodedChord;
 };

@@ -1,5 +1,5 @@
 import { upperBound } from "../util";
-import { isOverChord } from "./guitar";
+import { isOverChord } from "../instrument/guitar";
 //////////////////////////////////////////////////////////
 const MaxPower = {
     name: "MAX POWER!",

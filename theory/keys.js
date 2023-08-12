@@ -1,6 +1,6 @@
 import { Interval, PcSet } from "tonal";
 import { DEFAULT_RESTRICTED_MODES, MAJOR_MODES_BY_DEGREE, MAJOR_SCALES, noteNameEquals } from "./common";
-import { ALL_GUITAR_CHORDS, getGuitarNotes } from "./guitar";
+import { ALL_GUITAR_CHORDS, getGuitarNotes } from "../instrument/guitar";
 import { getTriadNotes } from "./triads";
 /**
  * How many semitones are between the two given notes?

@@ -1,8 +1,3 @@
-/**
- * N.B. returns undefined when the random array is empty.
- */
-export declare function randomChoice<T>(items: Array<T>): T;
-export declare function createMakeChoice<T>(domain: Array<T>): (...blockedChoices: (T | undefined)[]) => T;
 export declare function memoize<R, T extends (...args: any[]) => R>(f: T): T;
 /**
  * Return 0 <= i <= array.length such that !pred(array[i - 1]) && pred(array[i]).
@@ -26,3 +21,6 @@ export declare const withReplacement: <T>(array: T[], index: number, replacement
  * Returns the first N integers, e.g. firstNDigits(5) === [0, 1, 2, 3, 4].
  */
 export declare const firstNDigits: (n: number) => number[];
+export declare const shortestOf: <T extends {
+    length: number;
+}>(arr: T[]) => T | undefined;

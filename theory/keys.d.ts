@@ -1,5 +1,5 @@
 import { Note } from "./common";
-import { ExplodedChord } from "./guitar";
+import { ExplodedChord } from "../instrument/guitar";
 export type ChordSearchParams = {
     /**
      * The notes of the scale, without octaves.

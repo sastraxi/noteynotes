@@ -1,7 +1,7 @@
 import GuitarChords from './guitar.json'  // see README.md
 import { VexChordDefinition } from 'vexchords'
 import { transpose, Interval, } from 'tonal'
-import { Note, NoteDisplayContext, displayAccidentals, normalizedNoteName, noteForDisplay } from './common'
+import { Note, NoteDisplayContext, displayAccidentals, normalizedNoteName, noteForDisplay } from '../theory/common'
 
 type ChordLibraryEntry = {
   key: string,
@@ -72,7 +72,7 @@ export const chordEquals = (a: ExplodedChord, b: ExplodedChord) =>
   normalizedNoteName(a.root) === normalizedNoteName(b.root) &&
   a.suffix === b.suffix
 
-export const chordForDisplay = (chord: Chord | ExplodedChord, context: NoteDisplayContext = {}) => {
+export const basicChordForDisplay = (chord: Chord | ExplodedChord, context: NoteDisplayContext = {}) => {
   const { root, suffix } = (typeof chord === 'string' ? explodeChord(chord) : chord)
   const space = suffix.startsWith('/') ? '' : ' '
   return `${noteForDisplay(root, context)}${space}${displayAccidentals(suffix)}`

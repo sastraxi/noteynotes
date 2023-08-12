@@ -9,6 +9,7 @@ export type NoteDisplayContext = {
   keyName?: string
   scale?: Note[]
   showOctave?: boolean
+  compact?: boolean
 }
 
 export type ExplodedNote = {
@@ -93,7 +94,7 @@ export const MAJOR_KEY_NAMES: Array<string> = [
 export const KEY_NAMES_BASED_ON_MAJOR: Array<string> = []
 
 MAJOR_KEY_NAMES.forEach((keyName) => {
-  const [rootNote, ] = keyName.split(' ')
+  const [rootNote,] = keyName.split(' ')
   MAJOR_SCALES[rootNote] = keynameToNotes(keyName)
   MAJOR_SCALES[rootNote].forEach((note, degree) => {
     const mode = MAJOR_MODES_BY_DEGREE[degree]

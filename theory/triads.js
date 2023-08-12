@@ -1,21 +1,21 @@
 import { Interval, Progression, RomanNumeral, transpose } from "tonal";
-import { ALL_GUITAR_CHORDS, explodeChord } from "./guitar";
+import { ALL_GUITAR_CHORDS, explodeChord } from "../instrument/guitar";
 import { ENHARMONIC_DISPLAY_FOR_KEYNAME, displayAccidentals } from "./common";
 import { memoize } from "../util";
-const POWER_TRIAD = [0, 7]; // yes, it's not a triad. sue me
-const SUS2_TRIAD = [2, 5];
-const SUS4_TRIAD = [5, 2];
-const MINOR_TRIAD = [3, 4];
-const MAJOR_TRIAD = [4, 3];
-const MAJOR_DIM_TRIAD = [4, 2]; // e.g. 9b5
-const DIMINISHED_TRIAD = [3, 3];
-const AUGMENTED_TRIAD = [4, 4];
+export const POWER_TRIAD = [0, 7]; // yes, it's not a triad. sue me
+export const SUS2_TRIAD = [2, 5];
+export const SUS4_TRIAD = [5, 2];
+export const MINOR_TRIAD = [3, 4];
+export const MAJOR_TRIAD = [4, 3];
+export const MAJOR_DIM_TRIAD = [4, 2]; // e.g. 9b5
+export const DIMINISHED_TRIAD = [3, 3];
+export const AUGMENTED_TRIAD = [4, 4];
 const DIMINISHED_TRIADS = [DIMINISHED_TRIAD, MAJOR_DIM_TRIAD];
 /**
  * Return the three component notes of a given triad starting
  * on a given root note (with or without octave).
  */
-const buildTriad = (rootNote, triad) => ([
+export const buildTriad = (rootNote, triad) => ([
     rootNote,
     transpose(rootNote, Interval.fromSemitones(triad[0])),
     transpose(rootNote, Interval.fromSemitones(triad[0] + triad[1])),
@@ -53,7 +53,7 @@ const SUFFIX_TO_TRIAD = {};
     // TODO: cache this list?
 }
 /**
- *
+ * TODO: remove this and instead use the methods in chord
  * @param chord
  * @returns undefined if we don't have
  */

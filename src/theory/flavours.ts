@@ -1,5 +1,5 @@
 import { upperBound } from "../util"
-import { ChordSuffix, isOverChord } from "./guitar"
+import { ChordSuffix, isOverChord } from "../instrument/guitar"
 import { ChordAndAccidentals } from "./keys"
 
 export type Flavour = {
@@ -86,7 +86,7 @@ export const getMakeFlavourChoice = (
   chords: Array<ChordAndAccidentals>,
 ) => {
   const weightingFunc = flavour.chordWeightingFunc ?? (() => 1)
-  
+
   // apply whitelist / blacklist
   let candidates: Array<ChordAndAccidentals>
   if (flavour.suffixes?.whitelist) {
@@ -100,7 +100,7 @@ export const getMakeFlavourChoice = (
   if (candidates.length === 0) {
     throw new Error("No chords!")
   }
-  
+
   // calculate each chord weight; maintain a cumulative weight array
   // alongside the candidate chords
   const cumulativeWeight: Array<number> = []

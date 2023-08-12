@@ -1,21 +1,21 @@
 import { Interval, Progression, RomanNumeral, transpose } from "tonal"
-import { ALL_GUITAR_CHORDS, Chord, ChordSuffix, ExplodedChord, explodeChord } from "./guitar"
+import { ALL_GUITAR_CHORDS, Chord, ChordSuffix, ExplodedChord, explodeChord } from "../instrument/guitar"
 import { ENHARMONIC_DISPLAY_FOR_KEYNAME, Note, displayAccidentals } from "./common"
 import { memoize } from "../util"
 
 /**
  * Number of semitones in the two nonoverlapping sub-intervals that make up a triad.
  */
-type Triad = Readonly<[number, number]>
+export type Triad = Readonly<[number, number]>
 
-const POWER_TRIAD: Triad = [0, 7] as const  // yes, it's not a triad. sue me
-const SUS2_TRIAD: Triad = [2, 5] as const
-const SUS4_TRIAD: Triad = [5, 2] as const
-const MINOR_TRIAD: Triad = [3, 4] as const
-const MAJOR_TRIAD: Triad = [4, 3] as const
-const MAJOR_DIM_TRIAD: Triad = [4, 2] as const  // e.g. 9b5
-const DIMINISHED_TRIAD: Triad = [3, 3] as const
-const AUGMENTED_TRIAD: Triad = [4, 4] as const
+export const POWER_TRIAD: Triad = [0, 7] as const  // yes, it's not a triad. sue me
+export const SUS2_TRIAD: Triad = [2, 5] as const
+export const SUS4_TRIAD: Triad = [5, 2] as const
+export const MINOR_TRIAD: Triad = [3, 4] as const
+export const MAJOR_TRIAD: Triad = [4, 3] as const
+export const MAJOR_DIM_TRIAD: Triad = [4, 2] as const  // e.g. 9b5
+export const DIMINISHED_TRIAD: Triad = [3, 3] as const
+export const AUGMENTED_TRIAD: Triad = [4, 4] as const
 
 const DIMINISHED_TRIADS = [DIMINISHED_TRIAD, MAJOR_DIM_TRIAD]
 
@@ -23,7 +23,7 @@ const DIMINISHED_TRIADS = [DIMINISHED_TRIAD, MAJOR_DIM_TRIAD]
  * Return the three component notes of a given triad starting
  * on a given root note (with or without octave).
  */
-const buildTriad = (rootNote: Note, triad: Triad): Note[] => ([
+export const buildTriad = (rootNote: Note, triad: Triad): Note[] => ([
   rootNote,
   transpose(rootNote, Interval.fromSemitones(triad[0])),
   transpose(rootNote, Interval.fromSemitones(triad[0] + triad[1])),
@@ -66,7 +66,7 @@ const SUFFIX_TO_TRIAD: Record<ChordSuffix, Triad> = {}
 }
 
 /**
- * 
+ * TODO: remove this and instead use the methods in chord
  * @param chord 
  * @returns undefined if we don't have 
  */
