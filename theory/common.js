@@ -75,6 +75,11 @@ MAJOR_KEY_NAMES.forEach((keyName) => {
         }
     });
 });
+export const CONSIDERED_NOTE_NAMES = [
+    'Ab', 'A', 'A#', 'Bb', 'B', 'B#', 'Cb', 'C', 'C#',
+    'Db', 'D', 'D#', 'Eb', 'E', 'E#', 'Fb', 'F', 'F#',
+    'Gb', 'G', 'G#',
+];
 /**
  * In a given key, provide a mapping that lets us run note names through it
  * and quickly convert enharmonics to the right name for that key.
@@ -83,11 +88,6 @@ MAJOR_KEY_NAMES.forEach((keyName) => {
  */
 export const ENHARMONIC_DISPLAY_FOR_KEYNAME = {};
 {
-    const CONSIDERED_NOTE_NAMES = [
-        'Ab', 'A', 'A#', 'Bb', 'B', 'B#', 'Cb', 'C', 'C#',
-        'Db', 'D', 'D#', 'Eb', 'E', 'E#', 'Fb', 'F', 'F#',
-        'Gb', 'G', 'G#',
-    ];
     KEY_NAMES_BASED_ON_MAJOR.forEach((keyName) => {
         const mapping = {};
         const keyNotes = keynameToNotes(keyName);
@@ -97,7 +97,6 @@ export const ENHARMONIC_DISPLAY_FOR_KEYNAME = {};
             const foundIndex = keyChromas.indexOf(noteChroma);
             if (foundIndex === -1) {
                 // out-of-key; mapping is identity
-                // TODO: should we let it fail and deal with it outside?
                 mapping[noteName] = noteName;
             }
             else {

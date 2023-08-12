@@ -24,3 +24,8 @@ export declare const firstNDigits: (n: number) => number[];
 export declare const shortestOf: <T extends {
     length: number;
 }>(arr: T[]) => T | undefined;
+/**
+ * e.g. [4, 6, 10, 1] => [4, 10, 20, 21]
+ */
+export declare const cumulative: (arr: Readonly<Array<number>>) => number[];
+export declare const unique: <T>(arr: T[]) => T[];

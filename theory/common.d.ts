@@ -42,6 +42,7 @@ export declare const MAJOR_SCALES: Record<Note, Note[]>;
  */
 export declare const MAJOR_KEY_NAMES: Array<string>;
 export declare const KEY_NAMES_BASED_ON_MAJOR: Array<string>;
+export declare const CONSIDERED_NOTE_NAMES: string[];
 /**
  * In a given key, provide a mapping that lets us run note names through it
  * and quickly convert enharmonics to the right name for that key.

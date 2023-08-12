@@ -59,4 +59,17 @@ export const shortestOf = (arr) => {
     }
     return shortest;
 };
+/**
+ * e.g. [4, 6, 10, 1] => [4, 10, 20, 21]
+ */
+export const cumulative = (arr) => arr.reduce((workingArray, item, index) => {
+    if (index === 0) {
+        workingArray.push(item);
+    }
+    else {
+        workingArray.push(item + workingArray[index - 1]);
+    }
+    return workingArray;
+}, []);
+export const unique = (arr) => arr.filter((item, index, self) => self.indexOf(item) === index);
 //# sourceMappingURL=index.js.map

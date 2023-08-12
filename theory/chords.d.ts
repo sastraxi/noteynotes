@@ -1,6 +1,6 @@
 import { Note, NoteDisplayContext } from "./common";
 import { Triad } from "./triads";
-import { Chord, ExplodedChord } from "instrument/guitar";
+import { Chord, ExplodedChord } from "../instrument/guitar";
 type ChordType = {
     /**
      * What names are this chord known by?
@@ -24,6 +24,16 @@ type FullChord = {
     bassNote?: Note;
     type: ChordType;
 };
+export declare const ALL_CHORD_NAMES: Array<string>;
 export declare const lookupChord: (chord: Chord | ExplodedChord) => FullChord;
+/**
+ * Get the notes that make up this chord, optionally rooting it in a specific octave
+ * so that the notes have correct intervalic distances from each other.
+ *
+ * @param chord the chord to get notes for
+ * @param octave if provided, the notes returned will have correct distances
+ *               relative to each other
+ */
+export declare const getBasicChordNotes: (chord: FullChord, octave?: number) => Note[];
 export declare const chordForDisplay: (chord: FullChord, context?: NoteDisplayContext) => string;
 export {};

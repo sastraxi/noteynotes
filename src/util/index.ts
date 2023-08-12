@@ -66,3 +66,22 @@ export const shortestOf = <T extends { length: number }>(arr: Array<T>): T | und
   }
   return shortest
 }
+
+/**
+ * e.g. [4, 6, 10, 1] => [4, 10, 20, 21]
+ */
+export const cumulative = (arr: Readonly<Array<number>>) =>
+  arr.reduce<Array<number>>(
+    (workingArray, item, index) => {
+      if (index === 0) {
+        workingArray.push(item)
+      } else {
+        workingArray.push(item + workingArray[index - 1])
+      }
+      return workingArray
+    },
+    [],
+  )
+
+export const unique = <T>(arr: Array<T>) =>
+  arr.filter((item, index, self) => self.indexOf(item) === index)
