@@ -5,13 +5,6 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@svgdotjs/svg.js@npm:^3.0.12":
-  version: 3.2.0
-  resolution: "@svgdotjs/svg.js@npm:3.2.0"
-  checksum: 73e34a50ca5b413a6522e37d5bdfaccffa9a29aa76fa2d6c2b81afffc0604683635e45c85db2eeffaf7e78744d9736c7b2bf627b428c905d862a3527734eccaf
-  languageName: node
-  linkType: hard
-
 "@tonaljs/abc-notation@npm:^4.8.0":
   version: 4.8.0
   resolution: "@tonaljs/abc-notation@npm:4.8.0"
@@ -266,7 +259,6 @@ __metadata:
     fast-json-stable-stringify: ^2.1.0
     tonal: ^5.0.0
     typescript: ^5.1.6
-    vexchords: ^1.2.0
   peerDependencies:
     react: "*"
     react-dom: "*"
@@ -317,14 +309,5 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: f53bfe97f7c8b2b6d23cf572750d4e7d1e0c5fff1c36d859d0ec84556a827b8785077bc27676bf7e71fae538e517c3ecc0f37e7f593be913d884805d931bc8be
-  languageName: node
-  linkType: hard
-
-"vexchords@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "vexchords@npm:1.2.0"
-  dependencies:
-    "@svgdotjs/svg.js": ^3.0.12
-  checksum: 6eebb4a65071cb6b498adb2d859eabba7199e88550bbe60eccc99c4b3f1c9d00325d3c7f0aba434656061addc1811c82925233202e500662c491b9d333692489
   languageName: node
   linkType: hard

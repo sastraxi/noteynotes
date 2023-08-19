@@ -1,5 +1,4 @@
 import GuitarChords from './guitar.json'  // see README.md
-import { VexChordDefinition } from 'vexchords'
 import { transpose, Interval, } from 'tonal'
 import { Note, NoteDisplayContext, displayAccidentals, normalizedNoteName, noteForDisplay } from '../theory/common'
 
@@ -117,8 +116,31 @@ export const getGuitarNotes = (
   return notes
 }
 
-export type ChordDefinition = VexChordDefinition & {
+type StringNumber = number
+type FretNumber = number
+type Label = string
+type GuitarString = [StringNumber, FretNumber, Label?] | [StringNumber, 'x']
+export type ChordDefinition = {
   notes: Note[],
+
+  /**
+   * position marker
+   */
+  position?: number
+  /**
+   * Array of [string, fret, label (optional)]
+   */
+  chord: GuitarString[],
+  /**
+   * Barres definitions
+   * @example
+   * // Creates a barre line over six strings on the first fret
+   * {
+   *      barres: [{fromString: 6, toString: 1, fret: 1}]
+   * }
+   */
+  barres?: { fromString: number, toString: number, fret: number }[],
+  tuning?: string[]
 }
 
 export const frettingToVexChord = (

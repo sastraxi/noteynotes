@@ -1,4 +1,3 @@
-import { VexChordDefinition } from 'vexchords';
 import { Note, NoteDisplayContext } from '../theory/common';
 export type Fretting = {
     frets: number[];
@@ -36,8 +35,35 @@ export declare const getFrettings: (chord: Chord | ExplodedChord) => Fretting[];
  * @returns e.g. ["A2", "C3", "E3"], from lowest-to-highest frequency
  */
 export declare const getGuitarNotes: (chord: Chord | ExplodedChord, variant: number) => Array<Note>;
-export type ChordDefinition = VexChordDefinition & {
+type StringNumber = number;
+type FretNumber = number;
+type Label = string;
+type GuitarString = [StringNumber, FretNumber, Label?] | [StringNumber, 'x'];
+export type ChordDefinition = {
     notes: Note[];
+    /**
+     * position marker
+     */
+    position?: number;
+    /**
+     * Array of [string, fret, label (optional)]
+     */
+    chord: GuitarString[];
+    /**
+     * Barres definitions
+     * @example
+     * // Creates a barre line over six strings on the first fret
+     * {
+     *      barres: [{fromString: 6, toString: 1, fret: 1}]
+     * }
+     */
+    barres?: {
+        fromString: number;
+        toString: number;
+        fret: number;
+    }[];
+    tuning?: string[];
 };
 export declare const frettingToVexChord: (f: Fretting, displayContext?: NoteDisplayContext) => ChordDefinition;
 export declare const ALL_GUITAR_CHORDS: Array<ExplodedChord>;
+export {};
